@@ -1,0 +1,77 @@
+/* timeable.css */
+
+/* CSS Variables for consistent theming */
+:root {
+    --timer-bg-color: #1a1a1a;
+    --timer-text-color: #00ffea;
+    --timer-font-family: 'Roboto Mono', monospace;
+    --timer-border: 2px solid #00ffea;
+    --timer-border-radius: 10px;
+    --timer-padding: 20px;
+    --timer-font-size: 2em;
+    --timer-animation-duration: 1s;
+    --timer-complete-color: #ff007f;
+}
+
+/* Timer Container Styling */
+.timeable-timer {
+    background-color: var(--timer-bg-color);
+    color: var(--timer-text-color);
+    font-family: var(--timer-font-family);
+    border: var(--timer-border);
+    border-radius: var(--timer-border-radius);
+    padding: var(--timer-padding);
+    text-align: center;
+    font-size: var(--timer-font-size);
+    width: fit-content;
+    margin: 10px auto;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 255, 234, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Animation for Timer Completion */
+.timeable-timer.complete {
+    background-color: var(--timer-complete-color);
+    color: #ffffff;
+    animation: shake var(--timer-animation-duration) ease;
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Optional: Styles for Pause and Reset Buttons */
+.timeable-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.timeable-button {
+    background-color: var(--timer-text-color);
+    color: #1a1a1a;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.timeable-button:hover {
+    background-color: #ffffff;
+    color: var(--timer-text-color);
+}
